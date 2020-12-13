@@ -10,7 +10,7 @@ public class OrderedArrayList<T extends Comparable<T>> extends NoNullArrayList<T
 
     public boolean add(T element) {
         if (element == null) {
-            throw new IllegalArgumentException("No nulls allowed.")
+            throw new IllegalArgumentException("No nulls allowed.");
         } else {
 
             for (int i = 0; i < this.size(); i++) {
@@ -32,10 +32,11 @@ public class OrderedArrayList<T extends Comparable<T>> extends NoNullArrayList<T
 
     public T set(int index, T element) {
         if (element == null) {
-            throw new IllegalArgumentException("No nulls allowed.")
+            throw new IllegalArgumentException("No nulls allowed.");
         } else {
             T old = this.get(index);
-            this.remove(element);
+            this.remove(index);
+            this.add(element);
             return old;
         }
     }
