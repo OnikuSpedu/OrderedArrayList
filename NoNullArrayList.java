@@ -6,26 +6,28 @@ class NoNullArrayList<T> extends ArrayList<T> {
     public NoNullArrayList(int startingCapacity) {
         super(startingCapacity);
     }
-    @Override
+    
     public boolean add(T e) {
         if(e == null) {
-            return false;
+            throw new IllegalArgumentException("No nulls allowed.");
         } else {
             return super.add(e);
         }
     }
-    @Override
+    
     public void add(int index, T element) {
         if(element != null) {
         super.add(index, element);
+        } else  {
+            throw new IllegalArgumentException("No nulls allowed.");
         }
     }
-    @Override
+    
     public T set(int index, T element) {
         if(element != null) {
             return super.set(index, element);
         } else {
-            return null;
+            throw new IllegalArgumentException("No nulls allowed.");
         }
     }
 }
